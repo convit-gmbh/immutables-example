@@ -15,23 +15,12 @@ repositories {
 dependencies {
     implementation "com.google.guava:guava:27.0-jre"
     implementation "com.fasterxml.jackson.core:jackson-databind:2.9.8"
-    implementation "org.immutables:value:2.7.4"
+
+    compileOnly "org.immutables:value-annotations:2.7.4"
+    annotationProcessor("org.immutables:value:2.7.4")
 
     testImplementation 'org.junit.jupiter:junit-jupiter:5.4.1'
     testImplementation 'org.assertj:assertj-core:3.12.2'
-}
-
-sourceSets.configureEach { sourceSet ->
-    tasks.named(sourceSet.compileJavaTaskName).configure {
-        options.annotationProcessorGeneratedSourcesDirectory = file("$buildDir/generated/sources/annotationProcessor/java/${sourceSet.name}")
-    }
-}
-
-idea {
-    module {
-        scopes.PROVIDED.plus += configurations.annotationProcessor
-        scopes.TEST.plus += configurations.testAnnotationProcessor
-    }
 }
 
 test {
