@@ -16,7 +16,7 @@ class ImmutableProductBuilder {
         this("", ImmutableList.of(), null);
     }
 
-    private ImmutableProductBuilder(String name, ImmutableList<String> images, Price price) {
+    ImmutableProductBuilder(String name, ImmutableList<String> images, Price price) {
         this.name = name;
         this.images = images;
         this.price = price;

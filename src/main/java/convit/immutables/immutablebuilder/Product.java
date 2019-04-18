@@ -30,8 +30,12 @@ class Product {
         return images;
     }
 
-    public static ImmutableProductBuilder builder()  {
+    public static ImmutableProductBuilder builder() {
         return new ImmutableProductBuilder();
+    }
+
+    public static ImmutableProductBuilder copy(Product product) {
+        return new ImmutableProductBuilder(product.name, product.images, product.price);
     }
 
     @Override

@@ -13,7 +13,7 @@ class ProductBuilder {
     private Price price;
     private List<String> images = new ArrayList<>();
 
-    ProductBuilder name(String name) {
+    public ProductBuilder name(String name) {
         this.name = name;
         return this;
     }

@@ -34,6 +34,13 @@ class Product {
         return new ProductBuilder();
     }
 
+    public static ProductBuilder copy(Product product) {
+        return new ProductBuilder()
+            .name(product.name)
+            .images(product.images)
+            .price(product.price);
+    }
+
     @Override
     public boolean equals(Object o) {
         if ( this == o ) {

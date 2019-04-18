@@ -9,6 +9,7 @@ import org.junit.jupiter.api.Test;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.common.collect.ImmutableList;
 
 class ProductTest {
 
@@ -48,6 +49,19 @@ class ProductTest {
                 )
             )
             .build());
+    }
+
+    @Test
+    void ensure_copy_copies_all_fields_to_new_builder() {
+        Product product = new Product("Android Phone 1",
+            ImmutableList.of(
+                "http://example.com/android1_image1.jpeg",
+                "http://example.com/android1_image2.jpeg",
+                "http://example.com/android1_image3.jpeg"),
+            new Price(600.0, "USD")
+        );
+
+        assertThat(Product.copy(product).build()).isEqualTo(product);
     }
 
 }
