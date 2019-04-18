@@ -1,13 +1,17 @@
 package convit.immutables.immutables;
 
+import java.util.Currency;
+
 import org.immutables.value.Value;
 
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 @Value.Immutable
-@JsonDeserialize(builder = ImmutableUserData.Builder.class)
-interface UserData {
+@JsonDeserialize(builder = ImmutablePrice.Builder.class)
+interface Price {
 
-    String data();
+    double amount();
+
+    String currency();
 
 }
